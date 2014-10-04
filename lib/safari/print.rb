@@ -17,6 +17,9 @@ module Safari
       applescript = File.expand_path('../../../bin/PrintSafari.scpt', __FILE__)
 
       system("/usr/bin/open /Applications/Safari.app 'file:///#{temp_html_file.path}'")
+
+      sleep 2
+
       system("/usr/bin/osascript #{applescript}")
     end
   end

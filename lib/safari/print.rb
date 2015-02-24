@@ -6,7 +6,7 @@ module Safari
   module Print
     include FileUtils
 
-    def self.print
+    def self.print(printer=1)
 
       html = yield
 
@@ -20,7 +20,7 @@ module Safari
 
       sleep 2
 
-      system("/usr/bin/osascript #{applescript}")
+      system("/usr/bin/osascript #{applescript} #{printer}")
     end
   end
 end

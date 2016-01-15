@@ -18,9 +18,11 @@ module Safari
 
       system("/usr/bin/open /Applications/Safari.app 'file:///#{temp_html_file.path}'")
 
-      sleep 2
+      sleep 5
 
       system("/usr/bin/osascript #{applescript} #{printer}")
+      
+      sleep 10
     end
   end
 end

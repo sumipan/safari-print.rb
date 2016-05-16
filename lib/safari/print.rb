@@ -6,6 +6,20 @@ module Safari
   module Print
     include FileUtils
 
+    def self.print_file(printer=1)
+      path = yield
+      
+      applescript = File.expand_path('../../../bin/PrintSafari.scpt', __FILE__)
+
+      system("/usr/bin/open /Applications/Safari.app 'file:///#{path}'")
+
+      sleep 5
+
+      system("/usr/bin/osascript #{applescript} #{printer}")
+
+      sleep 10
+    end
+
     def self.print(printer=1)
 
       html = yield
